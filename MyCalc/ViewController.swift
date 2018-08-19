@@ -71,7 +71,13 @@ class ViewController: UIViewController {
     @IBAction func tapClearButton(_ sender: Any) {
         priceField.text = "0"
     }
-    
+
+    @IBAction func restart(_ segue: UIStoryboardSegue) {
+        priceField.text = "0"
+    }
+
+    // privateにしたい
+
     func tapNumberButton(number: String) {
         let value = priceField.text! + number
         

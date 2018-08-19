@@ -107,6 +107,9 @@
                                 <rect key="frame" x="16" y="486" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter discount percentage"/>
+                                <connections>
+                                    <segue destination="Lg9-L8-bzw" kind="modal" id="poh-dY-NxK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lCH-jQ-OLB">
                                 <rect key="frame" x="2" y="307" width="100" height="60"/>
@@ -250,6 +253,9 @@
                                 <rect key="frame" x="16" y="486" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <segue destination="nFl-Pd-GR8" kind="modal" id="0Ry-lo-QQa"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" id="vek-nW-EUn">
                                 <rect key="frame" x="16" y="54" width="288" height="30"/>
@@ -295,6 +301,9 @@
                                 <rect key="frame" x="16" y="110" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter another price"/>
+                                <connections>
+                                    <segue destination="MxR-Bw-GXm" kind="unwind" unwindAction="restart:" id="LeW-0e-uny"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -304,6 +313,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L39-yG-SpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MxR-Bw-GXm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="830" y="148"/>
         </scene>
