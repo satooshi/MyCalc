@@ -25,49 +25,15 @@ class ViewController: UIViewController {
 
  
     // actions
-
-    @IBAction func tap1Button(_ sender: Any) {
-        tapNumberButton(number: "1")
-    }
     
-    @IBAction func tap2Button(_ sender: Any) {
-        tapNumberButton(number: "2")
-    }
-    
-    @IBAction func tap3Button(_ sender: Any) {
-        tapNumberButton(number: "3")
-    }
-    
-    @IBAction func tap4Button(_ sender: Any) {
-        tapNumberButton(number: "4")
-    }
-    
-    @IBAction func tap5Button(_ sender: Any) {
-        tapNumberButton(number: "5")
-    }
-    
-    @IBAction func tap6Button(_ sender: Any) {
-        tapNumberButton(number: "6")
-    }
-    
-    @IBAction func tap7Button(_ sender: Any) {
-        tapNumberButton(number: "7")
-    }
-    
-    @IBAction func tap8Button(_ sender: Any) {
-        tapNumberButton(number: "8")
-    }
-    
-    @IBAction func tap9Button(_ sender: Any) {
-        tapNumberButton(number: "9")
-    }
-    
-    @IBAction func tap0Button(_ sender: Any) {
-        tapNumberButton(number: "0")
-    }
-    
-    @IBAction func tap00Button(_ sender: Any) {
-        tapNumberButton(number: "00")
+    @IBAction func tapNumberButton(_ sender: UIButton) {
+        if let number = sender.currentTitle {
+            let value = priceField.text! + number
+            
+            if let price = UInt64(value) {
+                priceField.text = "\(price)"
+            }
+        }
     }
     
     @IBAction func tapClearButton(_ sender: Any) {
@@ -84,16 +50,6 @@ class ViewController: UIViewController {
         if let price = UInt64(priceField.text!) {
             model.price = price
             viewController.model = model
-        }
-    }
-
-    // privateにしたい
-
-    func tapNumberButton(number: String) {
-        let value = priceField.text! + number
-        
-        if let price = UInt64(value) {
-            priceField.text = "\(price)"
         }
     }
 }

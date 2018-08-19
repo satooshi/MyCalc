@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    var model: DiscountCalculator!
+    weak var model: DiscountCalculator!
 
     @IBOutlet weak var resultField: UITextField!
 

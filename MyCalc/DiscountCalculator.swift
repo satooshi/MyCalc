@@ -12,6 +12,8 @@ class DiscountCalculator {
     var price: UInt64 = 0
     var discountRatio: UInt64 = 0
     
+    
+    
     func getDiscountPrice() -> UInt64 {
         let percentage = Float(discountRatio) / 100
         let discountAmount = Float(price) * percentage
