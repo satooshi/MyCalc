@@ -10,20 +10,33 @@ import Foundation
 
 class DiscountCalculator {
     var price: UInt64 = 0
-    var discountRatio: UInt64 = 0
+    var discountRate: UInt = 0
+
+    var discountPrice: UInt64 {
+        if isValid() {
+            return price - discountAmount
+        }
+
+        return price
+    }
     
-    
-    
-    func getDiscountPrice() -> UInt64 {
-        let percentage = Float(discountRatio) / 100
-        let discountAmount = Float(price) * percentage
+    private var discountAmount: UInt64 {
+        let percentage = Float(discountRate) / 100
+        let amount = Float(price) * percentage
         
-        // TODO throw exception
-        return price - UInt64(discountAmount)
+        return UInt64(amount)
+    }
+    
+    func isValid() -> Bool {
+        if discountRate > 100 {
+            return false;
+        }
+
+        return true
     }
     
     func reset() {
         price = 0
-        discountRatio = 0
+        discountRate = 0
     }
 }

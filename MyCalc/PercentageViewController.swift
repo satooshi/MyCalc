@@ -38,11 +38,30 @@ class PercentageViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let discountRate = UInt(percentageField.text!) {
+            model.discountRate = discountRate
+            if model.isValid() {
+                return true
+            }
+        }
+        
+        // title: String?, message: String?, preferredStyle: UIAlertControllerStyle
+        let alert: UIAlertController = UIAlertController(title: "Invalid data", message: "discount rate must not be greater than 100", preferredStyle: UIAlertControllerStyle.alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        alert.addAction(defaultAction)
+
+        present(alert, animated: true, completion: nil)
+        return false
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! ResultViewController
-        viewController.model = model
-        if let discountRatio = UInt64(percentageField.text!) {
-            model.discountRatio = discountRatio
+        if let discountRate = UInt(percentageField.text!) {
+            model.discountRate = discountRate
             viewController.model = model
         }
     }
