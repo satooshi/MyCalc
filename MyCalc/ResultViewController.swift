@@ -9,8 +9,8 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    var price: UInt = 0
-    var discountRatio: UInt = 0
+    var price: UInt64 = 0
+    var discountRatio: UInt64 = 0
 
     @IBOutlet weak var resultField: UITextField!
 
@@ -20,7 +20,7 @@ class ResultViewController: UIViewController {
 
         let percentage = Float(discountRatio) / 100
         let discountAmount = Float(price) * percentage
-        let discountPrice = price - UInt(discountAmount)
+        let discountPrice = price - UInt64(discountAmount)
 
         resultField.text = "\(discountPrice)"
     }

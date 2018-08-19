@@ -67,6 +67,14 @@ class PercentageViewController: UIViewController {
     @IBAction func tapClearButton(_ sender: Any) {
         percentageField.text = "0"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! ResultViewController
+        viewController.price = price
+        if let discountRatio = UInt64(percentageField.text!) {
+            viewController.discountRatio = discountRatio
+        }
+    }
 
     // privateにしたい
 

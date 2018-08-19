@@ -75,6 +75,13 @@ class ViewController: UIViewController {
     @IBAction func restart(_ segue: UIStoryboardSegue) {
         priceField.text = "0"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! PercentageViewController
+        if let price = UInt64(priceField.text!) {
+            viewController.price = price
+        }
+    }
 
     // privateにしたい
 
