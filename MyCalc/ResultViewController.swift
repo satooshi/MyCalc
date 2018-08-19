@@ -9,20 +9,14 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    var price: UInt64 = 0
-    var discountRatio: UInt64 = 0
+    var model: DiscountCalculator!
 
     @IBOutlet weak var resultField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
-        let percentage = Float(discountRatio) / 100
-        let discountAmount = Float(price) * percentage
-        let discountPrice = price - UInt64(discountAmount)
-
-        resultField.text = "\(discountPrice)"
+        resultField.text = "\(model.getDiscountPrice())"
     }
 
     override func didReceiveMemoryWarning() {

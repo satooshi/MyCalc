@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var model = DiscountCalculator()
+    
     @IBOutlet weak var priceField: UITextField!
     
     override func viewDidLoad() {
@@ -74,12 +76,14 @@ class ViewController: UIViewController {
 
     @IBAction func restart(_ segue: UIStoryboardSegue) {
         priceField.text = "0"
+        model.reset()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! PercentageViewController
         if let price = UInt64(priceField.text!) {
-            viewController.price = price
+            model.price = price
+            viewController.model = model
         }
     }
 

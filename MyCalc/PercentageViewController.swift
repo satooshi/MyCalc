@@ -9,7 +9,7 @@
 import UIKit
 
 class PercentageViewController: UIViewController {
-    var price: UInt64 = 0
+    var model: DiscountCalculator!
 
     @IBOutlet weak var percentageField: UITextField!
 
@@ -70,9 +70,10 @@ class PercentageViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! ResultViewController
-        viewController.price = price
+        viewController.model = model
         if let discountRatio = UInt64(percentageField.text!) {
-            viewController.discountRatio = discountRatio
+            model.discountRatio = discountRatio
+            viewController.model = model
         }
     }
 
