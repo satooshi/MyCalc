@@ -23,11 +23,11 @@ class PercentageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func tapClearButton(_ sender: Any) {
         percentageField.text = "0"
     }
-    
+
     @IBAction func tapNumberButton(_ sender: UIButton) {
         if let number = sender.currentTitle {
             let value = percentageField.text! + number
@@ -37,7 +37,7 @@ class PercentageViewController: UIViewController {
             }
         }
     }
-    
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let discountRate = UInt(percentageField.text!) {
             model.discountRate = discountRate
@@ -45,7 +45,7 @@ class PercentageViewController: UIViewController {
                 return true
             }
         }
-        
+
         // title: String?, message: String?, preferredStyle: UIAlertControllerStyle
         let alert: UIAlertController = UIAlertController(title: "Invalid data", message: "discount rate must not be greater than 100", preferredStyle: UIAlertControllerStyle.alert)
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
@@ -57,7 +57,7 @@ class PercentageViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         return false
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! ResultViewController
         if let discountRate = UInt(percentageField.text!) {
@@ -65,7 +65,7 @@ class PercentageViewController: UIViewController {
             viewController.model = model
         }
     }
-    
+
     /*
     // MARK: - Navigation
 
@@ -75,5 +75,4 @@ class PercentageViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
